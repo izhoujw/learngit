@@ -155,3 +155,4 @@ git add readme.md git commit -m 'conflict fixed'
 git branch -d feature1
 
 -分支管理策略
+--no-ff方式的merge
