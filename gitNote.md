@@ -60,9 +60,16 @@ git add 实际就是将文件修改添加到暂存区
 git commit 实际上就是把暂存区的所有内容提交到当前分支
 简单理解为需要提交的文件修改放到暂存区，然后一次性提交暂存区的所有修改
 
-实践：先修改gitNote,再添加一个LICENSE的文件
+实践：先修改gitNote,再添加一个LICENSE的文件. 
+查看git status。
+使用git add LICENSE后查看git status。
+然后使用git commit。
 
 
+-管理修改
+git比其他版本控制系统设计的优秀，因为Git跟踪bong管理的是修改，而非文件。
+可以做个测试：
+第一步，对GitNote.md做一个修改，新加内容，然后添加
 
 
 
