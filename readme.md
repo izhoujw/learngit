@@ -54,7 +54,8 @@ Git版本回退，是将只想当前版本的HEAD指针，指向上一个版本
 
 ###版本库（repository）
 工作区中含有一个隐藏目录 .git, 这个就是Git的版本库
-版本库中含有很多东西，其中最重要的是stage（或者叫index）的暂存区，还用Git伟我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD
+版本库中含有很多东西，其中最重要的是stage（或者叫index）的暂存区，
+还用Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD
 
 ###缓存区
 将文件添加到版本库是两步执行：
@@ -71,9 +72,9 @@ git commit 实际上就是把暂存区的所有内容提交到当前分支
 ##管理修改
 git比其他版本控制系统设计的优秀，因为Git跟踪管理的是修改，而非文件。
 可以做个测试：
-第一步，对GitNote.md做一个修改，新加内容，然后添加.
-第二步，再做一次修改
-第三部，提交，并查看状态
+1对GitNote.md做一个修改，新加内容，然后添加.
+2再做一次修改
+3提交，并查看状态
 发现此时第二次的修改没有被提交，显示Changes not staged for commit
 第二次的修改未被放入暂存区，commit只提交stage中的修改，所以第二次的修改未被提交。
 
@@ -136,15 +137,25 @@ git branch feature1 git checkout feature1     git checkout -b feature1
 修改readme.md 
 
 在分支feature1上提交
+
 git add readme.md  git commit -m 'modify readme in feature1'
+
 切换到master
+
 git checkout master
+
 Git会提示我们当前master的分支比远程的master分支要超前一个提交
+
 在master分支上修改readme.md
+
 提交
+
 git add readme.md  git commit -m 'modify readme in master'
+
 合并两个分支
+
 git merge feature
+
 产生冲突，需要手动解决。git status 也可以告诉我们冲突的文件：
 
 查看readme的内容，解决冲突，提交
