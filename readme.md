@@ -154,4 +154,3 @@ git add readme.md git commit -m 'conflict fixed'
 删除分支feature1
 git branch -d feature1
 
-23456789
