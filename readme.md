@@ -78,7 +78,56 @@ git比其他版本控制系统设计的优秀，因为Git跟踪管理的是修�
 总结：git commit 只会提交已经add到暂存区的修改，没有添加是不会被提交的
 
 -撤销修改
+--场景1：乱改了工作区某个文件，想直接丢弃工作区修改使用 git checkout -- file
+--场景2：乱改了工作区某个文件，并add到了暂存区，想要丢弃分两步，第一步使用git reset HEAD file，回到场景1， 再git checkout -- file
+--场景3：已经提交了不合适的修改，想要撤回版本，(前提是未推送到远程版本库)参考版本回退 git reset --hard HEAD^
 
+--删除文件
+Git中，删除也是一种修改操作，新添加一个新文件test.txt,add then commit,then rm test.txt
+使用git status 查看，显示文件被删除
+此时有两种选择：
+1.删除 git rm test.txt     git commit -m 'remove test.txt' (手动删除，再add change to stage, 效果和git rm 是一样的)
+2.恢复 git checkout -- test.txt
+
+
+远程仓库
+
+-在用户目录下.ssh 创建ssh key
+$ ssh-keygen -t rsa -C "youremail@example.com"
+将id_rsa.pub内容复制到GitHub中的ssh
+
+-添加远程库
+1.在GitHub新创建一个仓库
+2.git remote add origin git@github.com:XXX/learngit.git
+3.git push -u origin master
+以后每次本地提交后，只需要使用下面的命令即可推送最新修改
+4.git push origin master
+
+-从远程库克隆
+假设从零开发，最好是先创建远程库，然后从远程库克隆
+1.首先在GitHub创建一个新的仓库，gitskills，勾选创建readme.md.
+2.git clone git@github.com:michaelliao/gitskills.git
+
+-分支管理
+1.创建分支
+git checkout -b dev
+git checkout  add -b parameter mean create branch and switch to new branch
+git branch dev
+git checkout dev
+
+git branch查看当前分支：
+git branch： 会列出所有分支，在当前分支前标记*
+
+git checkout master :切换到master
+git merge dev ： merge Dev 到 master
+git branch -d dev
+
+查看分支：git branch
+创建分支：git branch <name>
+切换分支：git checkout <name>
+创建切换分支：git checkout -b <name>
+合并某分支到当前分支：git merge <name>
+删除分支：git branch -d <name>
 
 
 
