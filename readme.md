@@ -129,7 +129,28 @@ git branch -d dev
 合并某分支到当前分支：git merge <name>
 删除分支：git branch -d <name>
 
+解决冲突
+准备一个新的分支feature1分支
+git branch feature1 git checkout feature1     git checkout -b feature1
+修改readme.md 
 
+在分支feature1上提交
+git add readme.md  git commit -m 'modify readme in feature1'
+切换到master
+git checkout master
+Git会提示我们当前master的分支比远程的master分支要超前一个提交
 
+在master分支上修改readme.md
 
+提交
+git add readme.md  git commit -m 'modify readme in master'
+合并两个分支
+git merge feature
+产生冲突，需要手动解决。git status 也可以告诉我们冲突的文件：
+
+查看readme的内容，解决冲突，提交
+git add readme.md git commit -m 'conflict fixed'
+
+删除分支feature1
+git branch -d feature1
 
